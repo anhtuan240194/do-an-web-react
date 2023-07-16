@@ -15,7 +15,7 @@ export default function HeaderRight() {
       <HeaderSearch/>
       <HeaderAccount/>
       <HeaderCart onclick={handleclick} />
-      {<PopupCartRight show={show} handleClose={handleClose}/>}
+      <PopupCartRight show={show} handleClose={handleClose}/>
     </div>
   );
 }

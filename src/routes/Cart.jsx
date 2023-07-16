@@ -4,11 +4,13 @@ import Vouchercart from "../component/VoucherCart"
 import PaymentCart from "../component/Cart/PaymentCart"
 
 import { Col, Row, Container } from "react-bootstrap"
+import { useState } from "react"
 
 import "../css/cart.css"
 
 
 export default function Cart(){
+
     return (
         <Container>
         <div className="main_cart p-3 rounded-3">
@@ -22,7 +24,7 @@ export default function Cart(){
             </Col>
             <Col xs={12} xl={4} lg={4} md={5} sm={12}>
                 <Vouchercart/>
-                <PaymentCart/>
+                <PaymentCart />
             </Col>
           </Row>
         </div>

@@ -1,27 +1,37 @@
 
-import { Col, Row, Container, Button, Form } from "react-bootstrap";
-import { useForm, SubmitHandler } from "react-hook-form";
+import { Col, Row, Form } from "react-bootstrap";
+import { useForm} from "react-hook-form";
 
 
 interface IFormPayment {
-  phone: number;
+  phone: string;
   name: string;
   address: string;
   note: string
 }
 
 export default function OrderInfo() {
-  const { register, handleSubmit, formState } = useForm<IFormPayment>();
-  
+  const { register, handleSubmit, formState, reset } = useForm<IFormPayment>({
+    defaultValues: {
+      name: "",
+      note: "",
+      phone: "",
+      address: ""
+    },
+  });
+  const onSubmit = (values: IFormPayment) => {
+    console.log(values)
+    reset({name:"", address:"", phone:"", note:""});
+  }
   return (
     <div className="infor_payment p-3 mt-4 mb-4 rounded-3">
       <h4 className="mb-3 fw-bold">THÔNG TIN ĐẶT HÀNG</h4>
-      <Form onSubmit={handleSubmit()}>
+      <Form onSubmit={handleSubmit(onSubmit)} id="orderInfor">
         <Row>
-          <Col xs={12} lg={6} sm={6}>
+          <Col xs={12} lg={6} sm={6} className="mb-3"> 
             <Form.Group>
-              <Form.Label>Họ tên</Form.Label>
-              <Form.Control type="text" placeholder="Họ tên *"
+              <Form.Label htmlFor="name">Họ tên</Form.Label>
+              <Form.Control id="name" type="text" placeholder="Họ tên *"
               {...register("name", {
                 required: {
                   value: true,
@@ -30,10 +40,6 @@ export default function OrderInfo() {
                 minLength: {
                   value: 2,
                   message: "Họ tên phải tối thiểu 2 ký tự"
-                },
-                pattern: {
-                  value: /^[a-zA-Z ]{2,}$/,
-                  message:"Tên chỉ được chứa ký tự chữ và dấu cách"
                 }
               })}
               isInvalid={!!formState.errors.name}
@@ -43,10 +49,10 @@ export default function OrderInfo() {
               </Form.Control.Feedback>
             </Form.Group>
           </Col>
-          <Col xs={12} lg={6} sm={6}>
+          <Col xs={12} lg={6} sm={6} className="mb-3">
               <Form.Group>
-                <Form.Label>Số điện thoại</Form.Label>
-                <Form.Control type="text" placeholder="Số điện thoại*"
+                <Form.Label htmlFor="phone">Số điện thoại</Form.Label>
+                <Form.Control id="phone" type="text" placeholder="Số điện thoại*"
                 {...register("phone", {
                   required: {
                     value: true,
@@ -66,10 +72,10 @@ export default function OrderInfo() {
           </Col>
         </Row>
         <Row>
-          <Col>
+          <Col className="mb-3">
               <Form.Group>
-                <Form.Label>Địa chỉ nhận hàng</Form.Label>
-                <Form.Control type="text" placeholder="Địa chỉ nhận hàng*"
+                <Form.Label htmlFor="address">Địa chỉ nhận hàng</Form.Label>
+                <Form.Control id="address" type="text" placeholder="Địa chỉ nhận hàng*"
                  {...register("address", {
                   required: {
                     value:true,
@@ -84,7 +90,14 @@ export default function OrderInfo() {
               </Form.Group>
           </Col>
         </Row>
-        <Button type="submit">Submit</Button>
+        <Row>
+          <Col>
+          <Form.Group>
+            <Form.Label htmlFor="note">Ghi chú</Form.Label>
+            <Form.Control as="textarea" type="text" placeholder="Nội dung ghi chú cho đơn hàng" id="note"/>
+          </Form.Group>
+          </Col>
+        </Row>
       </Form>
     </div>
   );
