@@ -9,10 +9,15 @@ import IconBubbleChat from "../../assets/bubble-chat.svg";
 import AccordionBody from "react-bootstrap/esm/AccordionBody";
 import AccordionHeader from "react-bootstrap/esm/AccordionHeader";
 
+import {useContextLogin} from "../../hooks/useContextLogin.jsx"
+
+
 export default function NavMobile() {
   const [show, setShow] = useState(false);
   const handleShow = () => setShow(true);
   const handleClose = () => setShow(false);
+
+  const {useContextLogin, useContextLogout} = useContextLogin()
 
   return (
     <nav className="navbar_mobile">
@@ -29,7 +34,9 @@ export default function NavMobile() {
                 <p className="user_register_mb d-none">Đăng ký</p>
                 <p className="user_login_mb d-block d-none">Đăng nhập</p>
                 <p className="user_name_mb">Tên khách</p>
-                <p className="user_logout_mb">Đăng xuất</p>
+                <p className="user_logout_mb"
+                onClick={useContextLogin}
+                >Đăng xuất</p>
               </div>
             </div>
           </Offcanvas.Title>
@@ -44,12 +51,12 @@ export default function NavMobile() {
                 <a href="/collections">Khuyến mãi sốc</a>
               </li>
               <li className="nav_item">
-                <Accordion as={"a"} className={"dropdown_nav_lv0"}>
+                <Accordion className={"dropdown_nav_lv0"}>
                   <AccordionHeader>Sản phẩm</AccordionHeader>
                   <AccordionBody>
                     <ul className="nav_list_lv0">
                       <li className="nav_item nav_item_lv0">
-                        <Accordion as={"a"} className={"dropdown_nav_lv1"}>
+                        <Accordion className={"dropdown_nav_lv1"}>
                           <AccordionHeader>Đầm thiết kế</AccordionHeader>
                           <AccordionBody>
                             <ul className="nav_list_lv1">
@@ -73,7 +80,7 @@ export default function NavMobile() {
                         </Accordion>
                       </li>
                       <li className="nav_item nav_item_lv0">
-                        <Accordion as={"a"} className="dropdown_nav_lv1">
+                        <Accordion className="dropdown_nav_lv1">
                           <AccordionHeader> Vest</AccordionHeader>
                           <AccordionBody>
                             <ul className="nav_list_lv1">
@@ -91,7 +98,7 @@ export default function NavMobile() {
                         </Accordion>
                       </li>
                       <li className="nav_item nav_item_lv0">
-                        <Accordion as={"a"} className="dropdown_nav_lv1">
+                        <Accordion className="dropdown_nav_lv1">
                           <AccordionHeader>Áo</AccordionHeader>
                           <AccordionBody>
                             <ul className="nav_list_lv1">
@@ -112,7 +119,7 @@ export default function NavMobile() {
                         </Accordion>
                       </li>
                       <li className="nav_item nav_item_lv0">
-                        <Accordion as={"a"} className="dropdown_nav_lv1">
+                        <Accordion className="dropdown_nav_lv1">
                           <AccordionHeader>Quần</AccordionHeader>
                         
                         <AccordionBody>
@@ -137,7 +144,7 @@ export default function NavMobile() {
                         </Accordion>
                       </li>
                       <li className="nav_item nav_item_lv0">
-                      <Accordion as={"a"} className="dropdown_nav_lv1">
+                      <Accordion className="dropdown_nav_lv1">
                           <AccordionHeader>Đồ ngủ</AccordionHeader>
                         
                         <AccordionBody>
@@ -162,7 +169,7 @@ export default function NavMobile() {
                         </Accordion>
                       </li>
                       <li className="nav_item nav_item_lv0">
-                        <Accordion as={"a"} className="dropdown_nav_lv1">
+                        <Accordion className="dropdown_nav_lv1">
                           <AccordionHeader>Đồ lót</AccordionHeader>
                           <AccordionBody>
                             <ul className="nav_list_lv1">
@@ -190,7 +197,7 @@ export default function NavMobile() {
                 </Accordion>
               </li>
               <li className="nav_item">
-                <Accordion as={"a"} className={"dropdown_nav_lv0"}>
+                <Accordion className={"dropdown_nav_lv0"}>
                   <Accordion.Header>Chính sách</Accordion.Header>
                   <Accordion.Body>
                     <ul className="nav_list_lv0">
@@ -208,7 +215,7 @@ export default function NavMobile() {
                 </Accordion>
               </li>
               <li className="nav_item">
-                <Accordion as={"a"} className={"dropdown_nav_lv0"}>
+                <Accordion className={"dropdown_nav_lv0"}>
                   <AccordionHeader>Hướng dẫn</AccordionHeader>
                   <AccordionBody>
                     <ul className="nav_list_lv0">

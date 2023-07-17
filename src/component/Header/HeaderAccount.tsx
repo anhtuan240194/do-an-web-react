@@ -4,13 +4,17 @@ import IconUser from "../../assets/user.svg"
 import {useContextLogin} from "../../hooks/useContextLogin.jsx"
 
 export default function HeaderAccount() {
-  const {actionLogin, actionLogout, isLogin} = useContextLogin()
+  const { actionLogout, isLogin} = useContextLogin();
+  
   return (
-    <div className="d-lg-block d-md-block position-relative">
-      <div className="header_account">
+    <div className="d-lg-block d-md-block position-relative d-none">
+      { isLogin || (<div className="header_account" 
+      >
         <img src={IconUser} alt="Đăng nhập" />
-      </div>
-      { isLogin && (<div className="header_account_logout">
+      </div>)}
+      { isLogin && (<div className="header_account_logout" 
+      onClick={actionLogout}
+      >
         <img src={IconLogout} alt="Đăng xuất" />
       </div>) }
 

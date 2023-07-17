@@ -704,6 +704,13 @@
     color: var(--text-color);
     border-bottom: 1px solid #dcdcdc;
   }
+  .dropdown_nav_lv0, .nav_item_lv0 {
+    padding: 0.7rem 0;
+    border-bottom: 1px solid #dcdcdc;
+  }
+  .nav_item_lv0:last-child {
+    border-bottom: none;
+  }
   .navbar_mobile_body .nav_item:last-child a {
     border: none;
   }
@@ -722,7 +729,8 @@
     transform: translateY(-50%);
   }
   .navbar_mobile_body .nav_item_lv0 a {
-    padding: 0.5rem 0rem;
+    padding: 0;
+    border: none;
   }
   .navbar_mobile_body .nav_item_lv0:last-child a {
     border-bottom: none;
@@ -731,6 +739,10 @@
     border: 1px solid #0058a8;
     width: 46px;
     border-radius: 50%;
+  }
+  .navbar_mobile_body .nav_item_lv1 a {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #dcdcdc;
   }
   .account_info a {
     color: var(--main-color);
