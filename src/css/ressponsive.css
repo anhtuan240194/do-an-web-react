@@ -49,13 +49,17 @@
     .article_content {
       line-height: 1.75rem;
     }
+    .header_box_search {
+      height: 75px !important;
+      padding-top:0;
+  }
   }
   @media (max-width: 480px) {
+    .header_box_search {
+      padding-top:10px;
+    }
     .header_cart {
       margin-right: 5px;
-    }
-    .header_box_search {
-      padding: 10px 0 5px;
     }
     .header_main {
       padding: 10px 0 5px;

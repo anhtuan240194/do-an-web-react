@@ -1,18 +1,21 @@
 import PopupCartRight from "./PopupCartRight";
-import HeaderAccount from "./HeaderAccount";
+import HeaderAccount from "./HeaderLoginMobile";
 import HeaderCart from "./HeaderCart";
-import HeaderSearch from "./HeaderSearch";
+import IconSearch from "../../assets/search.svg";
+
 
 import { useState } from "react";
 
-export default function HeaderRight() {
+export default function HeaderRight({onShow}) {
   const [show, setShow] = useState(false);
 
   const handleclick = () => setShow(true);
   const handleClose = () =>  setShow(false)
   return (
     <div className="header_right">
-      <HeaderSearch/>
+      <img className="header_right_search" src={IconSearch} alt="Search" 
+      onClick={onShow}
+      />
       <HeaderAccount/>
       <HeaderCart onclick={handleclick} />
       <PopupCartRight show={show} handleClose={handleClose}/>

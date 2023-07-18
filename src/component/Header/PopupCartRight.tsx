@@ -3,7 +3,7 @@ import Offcanvas from 'react-bootstrap/Offcanvas';
 export default function PopupCartRight({show, handleClose}) {
 
   return (
-    <Offcanvas placement="end" show={show} onHide={handleClose} >
+    <Offcanvas placement="end" show={show} onHide={handleClose} className="popup-cartright" >
       <Offcanvas.Header closeButton>
         <Offcanvas.Title>Giỏ hàng của bạn</Offcanvas.Title>
       </Offcanvas.Header>

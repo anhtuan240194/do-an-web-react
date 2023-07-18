@@ -5,7 +5,7 @@ import Home from './routes/Home'
 import About from "./routes/About";
 import Collections from "./routes/Collections";
 import Article from "./routes/Article";
-import Contact from "./routes/Contact";
+import Contact from "./routes/Contact.tsx";
 import Cart from "./routes/Cart";
 
 

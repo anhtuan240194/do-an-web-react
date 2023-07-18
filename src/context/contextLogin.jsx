@@ -29,14 +29,16 @@ export default function LoginProvider({ children }) {
         dispatch({
             type: "LOGIN",
             payload: {isLogin: true}
-        })
+        });
+        console.log("login")
     }
 
     const actionLogout = () => {
         dispatch({
             type: "LOGOUT",
             payload: {isLogin: false}
-        })
+        });
+        console.log("logout")
     }
     
     return (

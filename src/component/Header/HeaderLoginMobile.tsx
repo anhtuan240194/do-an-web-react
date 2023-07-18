@@ -3,7 +3,7 @@ import IconLogout from "../../assets/logout.svg"
 import IconUser from "../../assets/user.svg" 
 import {useContextLogin} from "../../hooks/useContextLogin.jsx"
 
-export default function HeaderAccount() {
+export default function LoginMobile() {
   const { actionLogout, isLogin} = useContextLogin();
   
   return (

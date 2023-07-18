@@ -9,7 +9,7 @@ import IconBubbleChat from "../../assets/bubble-chat.svg";
 import AccordionBody from "react-bootstrap/esm/AccordionBody";
 import AccordionHeader from "react-bootstrap/esm/AccordionHeader";
 
-import {useContextLogin} from "../../hooks/useContextLogin.jsx"
+import { useContextLogin } from "../../hooks/useContextLogin.jsx"
 
 
 export default function NavMobile() {
@@ -17,7 +17,7 @@ export default function NavMobile() {
   const handleShow = () => setShow(true);
   const handleClose = () => setShow(false);
 
-  const {useContextLogin, useContextLogout} = useContextLogin()
+  const { actionLogin, actionLogout, isLogin } = useContextLogin()
 
   return (
     <nav className="navbar_mobile">
@@ -31,12 +31,14 @@ export default function NavMobile() {
             <div className="nav_account gap-3 d-flex align-items-center">
               <img src={IconProfile} alt="Tài khoản" />
               <div className="account_info">
-                <p className="user_register_mb d-none">Đăng ký</p>
-                <p className="user_login_mb d-block d-none">Đăng nhập</p>
-                <p className="user_name_mb">Tên khách</p>
-                <p className="user_logout_mb"
-                onClick={useContextLogin}
-                >Đăng xuất</p>
+
+                {isLogin || (<><p className="user_register_mb">Đăng ký</p>
+                <p className="user_login_mb" onClick={actionLogin}>Đăng nhập</p></>)}
+                {isLogin && (<>
+                  <p className="user_name_mb">Tên khách</p>
+                  <p className="user_logout_mb"
+                    onClick={actionLogout}
+                  >Đăng xuất</p></>)}
               </div>
             </div>
           </Offcanvas.Title>
@@ -121,51 +123,51 @@ export default function NavMobile() {
                       <li className="nav_item nav_item_lv0">
                         <Accordion className="dropdown_nav_lv1">
                           <AccordionHeader>Quần</AccordionHeader>
-                        
-                        <AccordionBody>
-                        <ul className="nav_list_lv1">
-                          <li className="nav_item nav_item_lv1">
-                            <a href="/collections">Mẫu quần mới nhất</a>
-                          </li>
-                          <li className="nav_item nav_item_lv1">
-                            <a href="/collections">Quần vải</a>
-                          </li>
-                          <li className="nav_item nav_item_lv1">
-                            <a href="/collections">Quần jean</a>
-                          </li>
-                          <li className="nav_item nav_item_lv1">
-                            <a href="/collections">Quần short</a>
-                          </li>
-                          <li className="nav_item nav_item_lv1">
-                            <a href="/collections">Quần dài</a>
-                          </li>
-                        </ul>
-                        </AccordionBody>
+
+                          <AccordionBody>
+                            <ul className="nav_list_lv1">
+                              <li className="nav_item nav_item_lv1">
+                                <a href="/collections">Mẫu quần mới nhất</a>
+                              </li>
+                              <li className="nav_item nav_item_lv1">
+                                <a href="/collections">Quần vải</a>
+                              </li>
+                              <li className="nav_item nav_item_lv1">
+                                <a href="/collections">Quần jean</a>
+                              </li>
+                              <li className="nav_item nav_item_lv1">
+                                <a href="/collections">Quần short</a>
+                              </li>
+                              <li className="nav_item nav_item_lv1">
+                                <a href="/collections">Quần dài</a>
+                              </li>
+                            </ul>
+                          </AccordionBody>
                         </Accordion>
                       </li>
                       <li className="nav_item nav_item_lv0">
-                      <Accordion className="dropdown_nav_lv1">
+                        <Accordion className="dropdown_nav_lv1">
                           <AccordionHeader>Đồ ngủ</AccordionHeader>
-                        
-                        <AccordionBody>
-                        <ul className="nav_list_lv1">
-                          <li className="nav_item nav_item_lv1">
-                            <a href="/collections">Mẫu đồ ngủ mới nhất</a>
-                          </li>
-                          <li className="nav_item nav_item_lv1">
-                            <a href="/collections">Bộ ngủ mặc nhà</a>
-                          </li>
-                          <li className="nav_item nav_item_lv1">
-                            <a href="/collections">Đồ ngủ sexy</a>
-                          </li>
-                          <li className="nav_item nav_item_lv1">
-                            <a href="/collections">Đồ ngủ cosplay</a>
-                          </li>
-                          <li className="nav_item nav_item_lv1">
-                            <a href="/collections">Đồ ngủ cute</a>
-                          </li>
-                        </ul>
-                        </AccordionBody>
+
+                          <AccordionBody>
+                            <ul className="nav_list_lv1">
+                              <li className="nav_item nav_item_lv1">
+                                <a href="/collections">Mẫu đồ ngủ mới nhất</a>
+                              </li>
+                              <li className="nav_item nav_item_lv1">
+                                <a href="/collections">Bộ ngủ mặc nhà</a>
+                              </li>
+                              <li className="nav_item nav_item_lv1">
+                                <a href="/collections">Đồ ngủ sexy</a>
+                              </li>
+                              <li className="nav_item nav_item_lv1">
+                                <a href="/collections">Đồ ngủ cosplay</a>
+                              </li>
+                              <li className="nav_item nav_item_lv1">
+                                <a href="/collections">Đồ ngủ cute</a>
+                              </li>
+                            </ul>
+                          </AccordionBody>
                         </Accordion>
                       </li>
                       <li className="nav_item nav_item_lv0">
