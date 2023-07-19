@@ -840,11 +840,17 @@
     background: linear-gradient(180deg, #cf3340, #e78e97);
     color:#fff;
   }
-  .account-link.active {
-    background: linear-gradient(0deg, #2798fa, #0c49a0);
-    border: none !important;
-    color: #fff;
+  .register-title {
+    font-size: 0.9rem;
+    cursor: pointer;
+    color: var(--main-color);
   }
+  .register-title:hover {
+    color:var(--second-color)
+  }
+  .remember_pass label {
+    margin-left: 0.5rem;
+}
   .box_account_infor {
     width: 100%;
     height: 100%;

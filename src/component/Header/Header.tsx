@@ -4,7 +4,7 @@ import HeaderRight from "./HeaderRight";
 import NavMobile from "./NavMobile"
 import HeaderLogo from "./HeaderLogo";
 import HeaderSearch from "./HeaderSearch";
-import HeaderBoxLogin from "./HeaderBoxLogin";
+import HeaderBoxAccount from "./HeaderBoxAccount";
 
 import { useState } from "react";
 
@@ -40,7 +40,7 @@ export default function Header() {
         </Container>
       </div>
       <HeaderSearch onHide={handleCloseSearch} show={show}/>
-      <HeaderBoxLogin/>
+      <HeaderBoxAccount/>
     </>
   );
 }

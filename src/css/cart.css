@@ -93,9 +93,6 @@
     background: #fff;
     border: 1px solid #ddd;
   }
-  form label {
-    margin-bottom: 0.5rem;
-  }
   input.item_cart_number_quantity {
       width: calc(100% - 60px);
       vertical-align: middle;

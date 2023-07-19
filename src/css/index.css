@@ -122,11 +122,10 @@ section {
   vertical-align: middle;
   margin-top: -3px;
 }
-
-.nav {
-  gap: 10px;
+.register-title {
+  font-size: 0.9rem;
+  color: #7c7c7c;
 }
-
 .blog_posttime {
   bottom: 10px;
   left: 10px;
