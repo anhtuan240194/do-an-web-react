@@ -11,6 +11,7 @@ import CollectionImg8 from "../assets/season_coll_8_img.png";
 
 export default function ModuleCollection() {
   const {Swiper, SwiperSlide, Navigation} = useSwiperHook()
+
   const breakpoint = {
     320: {
       slidesPerView: 3,
@@ -22,6 +23,7 @@ export default function ModuleCollection() {
       slidesPerView: 8
     }
   }
+  
   return (
     <section className="collections">
       <div className="container">

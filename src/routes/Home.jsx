@@ -1,3 +1,5 @@
+import { useState, useEffect } from "react";
+
 import Slider from "../component/Slider"
 import ModuleCollection from "../component/ModuleCollection";
 import FlashSale from "../component/ModuleFlashSale/FlashSale";
@@ -8,6 +10,8 @@ import ModuleBlog from "../component/ModuleBlog";
 import '../css/index.css'
 
 export default function Home() {
+
+
   return (
     <>
       <Slider />

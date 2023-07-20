@@ -2,8 +2,20 @@ import CountDown from "./CountDown";
 import ItemProduct from "../ItemProduct";
 import Button from "react-bootstrap/Button";
 import HotSaleImg from "../../assets/hotsale.gif"
+import { useState, useEffect } from "react";
 
 export default function FlashSale() {
+  const [products, setProducts] = useState([])
+
+  useEffect(()=> {
+    const getDataProducts = async () => {
+      const rest = await fetch ("https://json-sever-do-an-web-react.onrender.com/api/products/")
+      const data = await rest.json()
+      setProducts(data);
+    }
+    getDataProducts();
+  }, []);
+
   return (
     <>
       <section className="flash_sale">
@@ -17,7 +29,7 @@ export default function FlashSale() {
                 </div>
                 <div className="flashsale_mainproduct p-1 swiper">
                   <div className="swiper-wrapper">
-                    <ItemProduct />
+                    {products.map((product) => (<ItemProduct product={product} key={product.id}/>))}
                   </div>
                   <div className="text-center">
                     <Button variant="light" href="/collections">Xem thêm</Button>
