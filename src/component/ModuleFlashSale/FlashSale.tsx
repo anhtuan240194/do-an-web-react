@@ -2,43 +2,62 @@ import CountDown from "./CountDown";
 import ItemProduct from "../ItemProduct";
 import Button from "react-bootstrap/Button";
 import HotSaleImg from "../../assets/hotsale.gif"
-import { useState, useEffect } from "react";
 
-export default function FlashSale() {
-  const [products, setProducts] = useState([])
+import useSwiperHook from "../../hooks/useSwiperHook";
+import { Col, Row, Container } from "react-bootstrap";
 
-  useEffect(()=> {
-    const getDataProducts = async () => {
-      const rest = await fetch ("https://json-sever-do-an-web-react.onrender.com/api/products/")
-      const data = await rest.json()
-      setProducts(data);
+export default function FlashSale({products}) {
+  const {Swiper, SwiperSlide, Navigation, Autoplay } = useSwiperHook()
+  
+  const filterProducts = products.filter((product)=> {
+    return product.collections.includes("Flash sale")
+  })
+  const items = filterProducts.map((product, index) => {
+    return (<SwiperSlide><ItemProduct product={product} key={index}/></SwiperSlide>)
+  })
+  
+  const breakpoint = {
+    320: {
+      slidesPerView: 2,
+    },
+    480: {
+      slidesPerView: 3
+    },
+    992: {
+      slidesPerView: 4
     }
-    getDataProducts();
-  }, []);
+  }
 
   return (
     <>
       <section className="flash_sale">
-        <div className="container">
-          <div className="row">
-            <div className="col-lg-12 col-xs-12">
+        <Container>
+          <Row>
+            <Col xs={12}>
               <div className="flashsale_container">
                 <div className="flashsale_maintitle flex-wrap align-items-center">
                   <h2 className="position-relative fw-bold">Flash sale</h2>
                   <CountDown />
                 </div>
-                <div className="flashsale_mainproduct p-1 swiper">
-                  <div className="swiper-wrapper">
-                    {products.map((product) => (<ItemProduct product={product} key={product.id}/>))}
-                  </div>
+                <div className="flashsale_mainproduct p-1">
+                  <Swiper                     
+                    modules={[Navigation, Autoplay]}
+                    spaceBetween={20}
+                    slidesPerView={4}
+                    breakpoints={breakpoint}
+                    navigation
+                    autoplay
+                  >
+                      {items}
+                  </Swiper>
                   <div className="text-center">
                     <Button variant="light" href="/collections">Xem thêm</Button>
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
-        </div>
+            </Col>
+          </Row>
+        </Container>
       </section>
     </>
   );
