@@ -3,12 +3,16 @@ import IconLogout from "../../assets/logout.svg"
 import IconUser from "../../assets/user.svg" 
 import {useContextLogin} from "../../hooks/useContextLogin.jsx"
 
-export default function LoginMobile() {
+export default function HeaderAccount(
+  {handleShowBoxAccount} 
+  : {handleShowBoxAccount: () => void}) {
   const { actionLogout, isLogin} = useContextLogin();
   
   return (
-    <div className="d-lg-block d-md-block position-relative d-none">
-      { isLogin || (<div className="header_account" 
+    <div className="position-relative">
+      { isLogin || (
+      <div className="header_account"
+      onClick={handleShowBoxAccount}
       >
         <img src={IconUser} alt="Đăng nhập" />
       </div>)}

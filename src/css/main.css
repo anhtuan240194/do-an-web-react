@@ -216,6 +216,7 @@
   .menu_list .lv0 a {
     color: var(--text-color);
     font-size: 1.25rem;
+    padding:0;
     position: relative;
   }
   
@@ -720,9 +721,7 @@
     border-bottom: none;
 }
   .nav_account img {
-    border: 1px solid #0058a8;
-    width: 46px;
-    border-radius: 50%;
+    width: 110px;
   }
   .navbar_mobile_body .nav_item_lv1 a {
     padding: 0.5rem 0;
@@ -781,7 +780,7 @@
     height: 100vh;
     top: 0;
     left: 0;
-    z-index: 2;
+    z-index: 3;
     background: rgba(0, 0, 0, 0.5);
   }
   
@@ -816,6 +815,7 @@
     color: #fff;
     border: none;
     border-radius: 30px;
+    cursor:pointer;
     height: 2rem;
     line-height: 2rem;
     width: 100%;
@@ -992,4 +992,25 @@ button.accordion-button {
 }
 .popup-cartright {
   max-width: 90vw;
+}
+.register-title:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 50px;
+  top: 50%;
+  height: 1px;
+  background: #000;
+}
+.register-title:after {
+  content: "";
+  position: absolute;
+  right: 0;
+  width: 50px;
+  top: 50%;
+  height: 1px;
+  background: #000;
+}
+.action-forgot {
+  gap: 20px;
 }

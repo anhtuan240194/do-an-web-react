@@ -22,35 +22,35 @@ export default function ProductTab({products}) {
   })
   
   const itemsNewProduct = filterNewProduct.map((product, index) => {
-    return (<Col xs={6} lg={3} md={3} sm={4}><ItemProduct product={product} key={index}/></Col>)
+    return (<Col xs={6} lg={3} md={3} sm={4} key={index}><ItemProduct product={product}/></Col>)
   })
   const filterSummerProduct = products.filter((product)=> {
     return product.collections.includes("Thời trang hè")
   })
 
   const itemsSummerProduct = filterSummerProduct.map((product, index) => {
-    return (<Col xs={6} lg={3} md={3} sm={4}><ItemProduct product={product} key={index}/></Col>)
+    return (<Col xs={6} lg={3} md={3} sm={4} key={index}><ItemProduct product={product}/></Col>)
   })
 
   const filterBikiniProduct = products.filter((product)=> {
     return product.collections.includes("Bikini")
   })
   const itemsBikiniProduct = filterBikiniProduct.map((product, index) => {
-    return (<Col xs={6} lg={3} md={3} sm={4}><ItemProduct product={product} key={index}/></Col>)
+    return (<Col xs={6} lg={3} md={3} sm={4} key={index}><ItemProduct product={product}/></Col>)
   })
 
   const filterHotProduct = products.filter((product)=> {
     return product.collections.includes("Bikini")
   })
   const itemsHotProduct = filterHotProduct.map((product, index) => {
-    return (<Col xs={6} lg={3} md={3} sm={4}><ItemProduct product={product} key={index}/></Col>)
+    return (<Col xs={6} lg={3} md={3} sm={4} key={index}><ItemProduct product={product} /></Col>)
   })
 
   return (
     <section className="product_tabs">
       <div className="container">
-      <Tab.Container id="product-tab" defaultActiveKey="tab1">
-          <Nav variant="pills" className="flex-row">
+      <Tab.Container id="product-tab" defaultActiveKey="tab1" >
+          <Nav variant="pills" className="flex-row mb-3 justify-content-center">
             <Nav.Item>
               <Nav.Link eventKey="tab1"><img src={IconTab1Img}/>Hàng mới về</Nav.Link>
             </Nav.Item>

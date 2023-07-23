@@ -46,7 +46,7 @@ export default function ItemProduct({ product } : {product:Product}) {
         {product.name}
         </div>
         <div className="item_pricebox">
-          <div className="item_price">{product.price}dd</div>
+          <div className="item_price">{product.price}đ</div>
           <div className="old_price">{product.oldprice}đ</div>
         </div>
         <div className="heart_sale">

@@ -55,6 +55,15 @@
   }
   }
   @media (max-width: 480px) {
+  .box_account_main, .box_account_success {
+      width: 80vw;
+  }
+  .box_account_img {
+    border-radius: 15px 15px 0px 0px;
+  }
+  .box_account_infor {
+    border-radius: 0 0px 15px 15px;
+  }
     .header_box_search {
       padding-top:10px;
     }

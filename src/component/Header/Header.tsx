@@ -4,7 +4,7 @@ import HeaderRight from "./HeaderRight";
 import NavMobile from "./NavMobile"
 import HeaderLogo from "./HeaderLogo";
 import HeaderSearch from "./HeaderSearch";
-import HeaderBoxAccount from "./HeaderBoxAccount";
+import BoxAccount from "./BoxAccount";
 
 import { useState } from "react";
 
@@ -13,10 +13,21 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
 export default function Header() {
-  const [show, setShow] = useState(false);
+  const [showSearch, setShowSearch] = useState(false);
+  const [showBoxAccount, setShowBoxAccount] = useState(false);
 
-  const handleShowSearch = () => setShow(true);
-  const handleCloseSearch = () => setShow(false);
+  const handleShowSearch = () => setShowSearch(true);
+  const handleCloseSearch = () => setShowSearch(false);
+
+  //Ẩn hiện blox login
+  const handleShowBoxAccount = () => {
+    setShowBoxAccount(true)
+  }
+  const handleCloseBoxAccount = (e:Event) => { 
+   e.target.classList.contains("box_account") ? setShowBoxAccount(false) 
+   : e.target.classList.contains("close_account") 
+   ? setShowBoxAccount(false) : setShowBoxAccount(true);
+  }
   return (
     <>
       <Topbar />
@@ -34,13 +45,13 @@ export default function Header() {
               <HeaderMenu/>
             </Col>
             <Col xl={2} md={3} xs={3}>
-              <HeaderRight onShow={handleShowSearch}/>
+              <HeaderRight onShow={handleShowSearch} handleShowBoxAccount={handleShowBoxAccount}/>
             </Col>
           </Row>
         </Container>
       </div>
-      <HeaderSearch onHide={handleCloseSearch} show={show}/>
-      <HeaderBoxAccount/>
+      <HeaderSearch onHide={handleCloseSearch} show={showSearch}/>
+      <BoxAccount showBoxAccount={showBoxAccount} handleCloseBoxAccount={handleCloseBoxAccount}/>
     </>
   );
 }

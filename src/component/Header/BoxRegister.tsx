@@ -1,9 +1,10 @@
 import IconPhoneImg from "../../assets/telephone-call.svg";
 import IconPasswordImg from "../../assets/padlock.svg";
+import IconUserImg from "../../assets/user.svg"
+import IconLinkImg from "../../assets/link.svg"
 
-export default function BoxRegister() {
+export default function BoxRegister({showBoxLogin}) {
     return (
-        <div className="tab-pane fade">
         <div className="form_user form_register">
           <h3 className="mb-3 text-center">ĐĂNG KÝ</h3>
           <p className="summary_form_user text-center mb-3">
@@ -13,7 +14,6 @@ export default function BoxRegister() {
             id="register"
             action="register"
             className="needs-validation"
-            noValidate=""
           >
             <div className="line_input position-relative mb-2">
               <input
@@ -21,11 +21,11 @@ export default function BoxRegister() {
                 id="nameuserregister"
                 placeholder="Họ tên"
                 className="form-control"
-                required=""
+                required
               />
               <img
                 className="position-absolute"
-                src="image/user.svg"
+                src={IconUserImg}
                 alt="Họ tên"
               />
             </div>
@@ -35,11 +35,11 @@ export default function BoxRegister() {
                 id="linkshop"
                 placeholder="Link bán hàng"
                 className="form-control"
-                required=""
+                required
               />
               <img
                 className="position-absolute"
-                src="image/link.svg"
+                src={IconLinkImg}
                 alt="Link bán hàng"
               />
             </div>
@@ -49,7 +49,7 @@ export default function BoxRegister() {
                 id="phoneregister"
                 placeholder="Số điện thoại"
                 className="form-control"
-                required=""
+                required
               />
               <img
                 className="position-absolute"
@@ -63,7 +63,7 @@ export default function BoxRegister() {
                 id="passwordregister"
                 placeholder="Mật khẩu"
                 className="form-control"
-                required=""
+                required
               />
               <img
                 className="position-absolute"
@@ -78,8 +78,11 @@ export default function BoxRegister() {
             >
               ĐĂNG KÝ
             </button>
+            <div className="register-title text-center mt-2 position-relative"
+          onClick={showBoxLogin}>
+            Hoặc đăng nhập tại đây
+          </div>
           </form>
         </div>
-      BoxLogin</div>
     )
 }

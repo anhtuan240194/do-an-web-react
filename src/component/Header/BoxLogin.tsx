@@ -11,7 +11,8 @@ interface IFormLogin {
   password: string;
 }
 
-export default function BoxLogin() {
+
+export default function BoxLogin({showBoxRegister, showBoxForgotPassword}) {
   const [stateLogin, setStateLogin] = useState<IFormLogin>({
     phone: null,
     password: "",
@@ -24,16 +25,14 @@ export default function BoxLogin() {
     });
   };
 
-  const onSubmitLogin = (e: any) => {
+  const onSubmitLogin = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log(stateLogin);
     setStateLogin({
       phone: null,
       password: "",
     });
   };
   return (
-    <div className="tab-pane active">
       <div className="form_user form_login">
         <h3 className="mb-3 text-center">ĐĂNG NHẬP</h3>
         <p className="summary_form_user text-center mb-3">
@@ -73,16 +72,18 @@ export default function BoxLogin() {
               <input type="checkbox" id="remember" />
               <label htmlFor="remember">Ghi nhớ</label>
             </div>
-            <div className="forger">Quên mật khẩu?</div>
+            <div className="forger" 
+            onClick={showBoxForgotPassword}
+            >Quên mật khẩu?</div>
           </div>
           <button form="formLogin" type="submit" className="login">
             ĐĂNG NHẬP
           </button>
-          <div className="register-title text-center mt-2">
+          <div className="register-title text-center mt-2 position-relative"
+          onClick={showBoxRegister}>
             Hoặc đăng ký tại đây
           </div>
         </form>
       </div>
-    </div>
   );
 }

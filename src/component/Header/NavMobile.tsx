@@ -8,6 +8,7 @@ import IconCallCenter from "../../assets/call-center.svg";
 import IconBubbleChat from "../../assets/bubble-chat.svg";
 import AccordionBody from "react-bootstrap/esm/AccordionBody";
 import AccordionHeader from "react-bootstrap/esm/AccordionHeader";
+import LogoMobile from "../../assets/logo.png";
 
 import { useContextLogin } from "../../hooks/useContextLogin.jsx"
 
@@ -29,21 +30,12 @@ export default function NavMobile() {
         <Offcanvas.Header closeButton>
           <Offcanvas.Title>
             <div className="nav_account gap-3 d-flex align-items-center">
-              <img src={IconProfile} alt="Tài khoản" />
-              <div className="account_info">
-
-                {isLogin || (<><p className="user_register_mb">Đăng ký</p>
-                <p className="user_login_mb" onClick={actionLogin}>Đăng nhập</p></>)}
-                {isLogin && (<>
-                  <p className="user_name_mb">Tên khách</p>
-                  <p className="user_logout_mb"
-                    onClick={actionLogout}
-                  >Đăng xuất</p></>)}
-              </div>
+              <img src={LogoMobile} alt="Tuli Design" />
             </div>
           </Offcanvas.Title>
         </Offcanvas.Header>
         <Offcanvas.Body className="p-0">
+
           <div className="navbar_mobile_body">
             <ul className="nav_list p-3">
               <li className="nav_item">

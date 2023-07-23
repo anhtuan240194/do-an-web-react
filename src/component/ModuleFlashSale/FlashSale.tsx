@@ -13,7 +13,7 @@ export default function FlashSale({products}) {
     return product.collections.includes("Flash sale")
   })
   const items = filterProducts.map((product, index) => {
-    return (<SwiperSlide><ItemProduct product={product} key={index}/></SwiperSlide>)
+    return (<SwiperSlide key={index}><ItemProduct product={product} /></SwiperSlide>)
   })
   
   const breakpoint = {
@@ -50,7 +50,7 @@ export default function FlashSale({products}) {
                   >
                       {items}
                   </Swiper>
-                  <div className="text-center">
+                  <div className="text-center mb-2">
                     <Button variant="light" href="/collections">Xem thêm</Button>
                   </div>
                 </div>
